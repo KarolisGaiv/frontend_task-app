@@ -1,4 +1,4 @@
-@import './base/base';
+@import "./base/base";
 
 *,
 *::before,
@@ -19,33 +19,43 @@ body,
 }
 
 body {
-    font-family: $main-font;
-    font-weight: $font-normal;
-    min-height: 100vh;
+  font-family: $main-font;
+  font-weight: $font-normal;
+  min-height: 100vh;
 }
 
 .content {
   background: $background-light;
-    height: 100%;
+  height: 100%;
+}
 
-    &__header {
-      align-items: baseline;
-        background-image: url(../images/bg-mobile-light.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: #FFFF;
-        display: flex;
-        font-size: 20px;
-        font-weight: $font-bold;
-        justify-content: space-between;
-        letter-spacing: 10px;
-        min-height: 200px;
-        padding: 48px 24px;
-        text-transform: uppercase;
+.header {
+  background-image: url(../images/bg-mobile-light.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffff;
+  padding: 48px 24px;
 
-        &__icon {
-          height: 20px;
-        }
+  &__top {
+    align-items: baseline;
+    display: flex;
+    font-weight: $font-bold;
+    justify-content: space-between;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+
+    &__text {
+      font-size: 20px;
     }
+  }
+
+  &__icon {
+    height: 20px;
+  }
+
+  &__new-task-form {
+    margin-bottom: 44px;
+    margin-top: 40px;
+  }
 }
