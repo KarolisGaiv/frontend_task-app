@@ -1,1 +1,35 @@
 @import './base/base';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.content {
+    height: 100%;
+    &__header {
+        background-image: url(../images/bg-mobile-light.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 200px;
+        padding: 48px 24px;
+    }
+}

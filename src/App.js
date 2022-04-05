@@ -1,7 +1,10 @@
+import "./styles/main.scss"
+
 function App() {
   return (
-    <div >
-    </div>
+    <main className="content">
+      <header className="content__header"></header>
+    </main>
   );
 }
 
