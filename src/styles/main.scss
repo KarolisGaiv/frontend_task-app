@@ -46,7 +46,7 @@ body {
     text-transform: uppercase;
 
     &__text {
-      font-size: 20px;
+      font-size: $font-size-medium;
     }
   }
 
@@ -57,5 +57,19 @@ body {
   &__new-task-form {
     margin-bottom: 44px;
     margin-top: 40px;
+
+    & input {
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+      font-family: inherit;
+      font-size: $font-size-small;
+      padding: 18px 0;
+      width: 100%;
+
+      &::placeholder {
+        color: $manatee;
+      }
+    }
   }
 }

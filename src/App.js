@@ -1,5 +1,6 @@
 import "./styles/main.scss";
 import MoonIcon from "./images/icon-moon.svg";
+import Test from "./images/icon-cross.svg";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <form className="header__new-task-form">
           <input
             type="text"
-            placeholder="Create a new todo"
+            placeholder="Create a new todo..."
             className="header__new-task-form__input-field"
           />
         </form>
