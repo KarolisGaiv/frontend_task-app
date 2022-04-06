@@ -11,10 +11,15 @@ function App() {
           <img src={MoonIcon} alt="moon icon" className="header__icon" />
         </div>
         <form className="header__new-task-form">
+          <button type="submit"></button>
+          <label htmlFor="input-field" className="visuallyhidden">
+            Create a new todo
+          </label>
           <input
             type="text"
             placeholder="Create a new todo..."
             className="header__new-task-form__input-field"
+            id="input-field"
           />
         </form>
       </header>
