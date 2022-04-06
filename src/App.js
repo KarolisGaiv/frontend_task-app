@@ -10,6 +10,7 @@ function App() {
   }
 
   function handleFormSubmit(e) {
+    e.preventDefault();
     console.log(userInput);
     setUserInput("");
   }
