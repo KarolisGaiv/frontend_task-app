@@ -7,6 +7,14 @@ import SunIcon from "./images/icon-sun.svg";
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
   const [userInput, setUserInput] = useState("");
+  let tasks = [
+    { name: "Complete online JavaScript course", completed: true },
+    { name: "Jog around the park 3x", completed: false },
+    { name: "10 minutes meditaion", completed: false },
+    { name: "Read for 1 hour", completed: false },
+    { name: "Pick up groceries", completed: false },
+    { name: "Complete Todo App on Frontend Mentor", completed: false },
+  ];
 
   const contentClassess = classNames("content", {
     "content --light": isLightMode,
