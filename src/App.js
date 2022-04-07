@@ -3,6 +3,7 @@ import { useState } from "react";
 import classNames from "classnames";
 import MoonIcon from "./images/icon-moon.svg";
 import SunIcon from "./images/icon-sun.svg";
+import TaskList from "./components/TaskList/TaskList";
 
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
@@ -68,6 +69,7 @@ function App() {
           />
         </form>
       </header>
+      <TaskList tasks={tasks} />
     </div>
   );
 }
