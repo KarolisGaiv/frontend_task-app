@@ -2,6 +2,7 @@ import "./styles/main.scss";
 import { useState } from "react";
 import classNames from "classnames";
 import MoonIcon from "./images/icon-moon.svg";
+import SunIcon from "./images/icon-sun.svg";
 
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
@@ -37,7 +38,11 @@ function App() {
         <div className="header__top">
           <h1 className="header__top__text">todo</h1>
           <button className="header__theme-btn" onClick={changeTheme}>
-            <img src={MoonIcon} alt="moon icon" className="header__icon" />
+            {isLightMode ? (
+              <img src={MoonIcon} alt="moon icon" className="header__icon" />
+            ) : (
+              <img src={SunIcon} alt="sun icon" className="header__icon" />
+            )}
           </button>
         </div>
         <form className="header__new-task-form" onSubmit={handleFormSubmit}>
