@@ -25,17 +25,31 @@ body {
 }
 
 .content {
-  background: $background-light;
   height: 100%;
+
+  &.--light {
+    background: $background-light;
+  }
+
+  &.--dark {
+    background: $background-dark;
+  }
 }
 
 .header {
-  background-image: url(../images/bg-mobile-light.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffff;
   padding: 48px 24px;
+
+  &.--light {
+    background-image: url(../images/bg-mobile-light.jpg);
+  }
+
+  &.--dark {
+    background-image: url(../images/bg-mobile-dark.jpg);
+  }
 
   &__top {
     align-items: baseline;
@@ -48,6 +62,11 @@ body {
     &__text {
       font-size: $font-size-medium;
     }
+  }
+
+  &__theme-btn {
+    background: none;
+    border: none;
   }
 
   &__icon {

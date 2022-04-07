@@ -1,9 +1,25 @@
 import "./styles/main.scss";
-import MoonIcon from "./images/icon-moon.svg";
 import { useState } from "react";
+import classNames from "classnames";
+import MoonIcon from "./images/icon-moon.svg";
 
 function App() {
+  const [isLightMode, setIsLightMode] = useState(true);
   const [userInput, setUserInput] = useState("");
+
+  const contentClassess = classNames("content", {
+    "content --light": isLightMode,
+    "content --dark": !isLightMode,
+  });
+
+  const headerClassess = classNames("header", {
+    "header --light": isLightMode,
+    "header --dark": !isLightMode,
+  });
+
+  function changeTheme() {
+    setIsLightMode(!isLightMode);
+  }
 
   function handleInput(e) {
     setUserInput(e.target.value);
@@ -16,11 +32,13 @@ function App() {
   }
 
   return (
-    <div className="content">
-      <header className="header">
+    <div className={contentClassess}>
+      <header className={headerClassess}>
         <div className="header__top">
           <h1 className="header__top__text">todo</h1>
-          <img src={MoonIcon} alt="moon icon" className="header__icon" />
+          <button className="header__theme-btn" onClick={changeTheme}>
+            <img src={MoonIcon} alt="moon icon" className="header__icon" />
+          </button>
         </div>
         <form className="header__new-task-form" onSubmit={handleFormSubmit}>
           <button type="submit"></button>
