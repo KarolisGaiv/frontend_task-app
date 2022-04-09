@@ -16,6 +16,14 @@ function TaskList({ tasks }) {
           </div>
         );
       })}
+      <div className="tasks-wrapper__bottom-container">
+        <p className="tasks-wrapper__bottom-container__task-counter">
+          {tasks.length} tasks left
+        </p>
+        <button className="tasks-wrapper__bottom-container__dlt-completed-btn">
+          Clear Completed
+        </button>
+      </div>
     </div>
   );
 }

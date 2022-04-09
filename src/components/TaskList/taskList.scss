@@ -5,6 +5,22 @@
   border-radius: 5px;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   margin-inline: 24px;
+
+  &__bottom-container {
+    display: flex;
+    color: $manatee;
+    font-size: $font-size-small;
+    justify-content: space-between;
+    padding: 16px 20px 22px 20px;
+
+    &__dlt-completed-btn {
+      background: none;
+      border: none;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
 }
 
 .task-container {
