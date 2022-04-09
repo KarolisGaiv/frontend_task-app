@@ -24,6 +24,10 @@
     color: $mulled-wine;
     font-size: $font-size-small;
     margin-left: 12px;
+    max-width: 235px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__delete-btn {
