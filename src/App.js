@@ -37,7 +37,8 @@ function App() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    console.log(userInput);
+    // tasks.push(userInput)
+    console.log(tasks);
     setUserInput("");
   }
 
