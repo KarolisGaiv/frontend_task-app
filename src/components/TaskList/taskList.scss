@@ -20,6 +20,12 @@
     width: 20px;
   }
 
+  &__task {
+    color: $mulled-wine;
+    font-size: $font-size-small;
+    margin-left: 12px;
+  }
+
   &__delete-btn {
     background: none;
     border: none;
