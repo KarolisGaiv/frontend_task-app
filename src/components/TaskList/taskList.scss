@@ -1,10 +1,17 @@
 @import "../../styles/base/base";
 
 .tasks-wrapper {
-  background: #fff;
   border-radius: 5px;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   margin-inline: 24px;
+
+  &.--light {
+    background: #fff;
+  }
+
+  &.--dark {
+    background: $ebony-clay;
+  }
 
   &__bottom-container {
     display: flex;

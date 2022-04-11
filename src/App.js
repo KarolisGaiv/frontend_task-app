@@ -27,6 +27,11 @@ function App() {
     "header --dark": !isLightMode,
   });
 
+  const newTaskForm = classNames("header__new-task-form", {
+    "header__new-task-form --light": isLightMode,
+    "header__new-task-form --dark": !isLightMode,
+  });
+
   function changeTheme() {
     setIsLightMode(!isLightMode);
   }
@@ -55,7 +60,7 @@ function App() {
             )}
           </button>
         </div>
-        <form className="header__new-task-form" onSubmit={handleFormSubmit}>
+        <form className={newTaskForm} onSubmit={handleFormSubmit}>
           <button type="submit"></button>
           <label htmlFor="input-field" className="visuallyhidden">
             Create a new todo
@@ -70,7 +75,7 @@ function App() {
           />
         </form>
       </header>
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} isLightMode={isLightMode}/>
     </div>
   );
 }

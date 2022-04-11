@@ -1,10 +1,16 @@
 import "./taskList.scss";
 import React from "react";
 import DeleteIcon from "../../images/icon-cross.svg";
+import classNames from "classnames";
 
-function TaskList({ tasks }) {
+function TaskList({ isLightMode, tasks }) {
+  const taskWrapperClassess = classNames("tasks-wrapper", {
+    "tasks-wrapper --light": isLightMode,
+    "tasks-wrapper --dark": !isLightMode,
+  });
+
   return (
-    <div className="tasks-wrapper">
+    <div className={taskWrapperClassess}>
       {tasks.map((task) => {
         return (
           <div className="task-container" key={task.name}>
