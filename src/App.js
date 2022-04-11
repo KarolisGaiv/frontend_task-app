@@ -68,7 +68,7 @@ function App() {
           <input
             type="text"
             placeholder="Create a new todo..."
-            className={isLightMode ? "header__new-task-form__input-field" : "header__new-task-form__input-field header__new-task-form__input-field --dark"}
+            className="header__new-task-form__input-field"
             id="input-field"
             onChange={handleInput}
             value={userInput}
