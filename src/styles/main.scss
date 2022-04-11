@@ -111,6 +111,12 @@ body {
       &::placeholder {
         color: $manatee;
       }
+
+      &.--dark {
+        &::placeholder {
+          color: $waterloo;
+        }
+      }
     }
   }
 }
