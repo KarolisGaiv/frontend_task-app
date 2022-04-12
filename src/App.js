@@ -10,17 +10,14 @@ function App() {
   const [isLightMode, setIsLightMode] = useState(true);
   const [userInput, setUserInput] = useState("");
   const [tasks, setTasks] = useState([]);
-
   const contentClassess = classNames("content", {
     "content --light": isLightMode,
     "content --dark": !isLightMode,
   });
-
   const headerClassess = classNames("header", {
     "header --light": isLightMode,
     "header --dark": !isLightMode,
   });
-
   const newTaskForm = classNames("header__new-task-form", {
     "header__new-task-form --light": isLightMode,
     "header__new-task-form --dark": !isLightMode,
@@ -54,6 +51,7 @@ function App() {
     updatedTaskList.push({ name: userInput, completed: false });
     localStorage.setItem("tasks", JSON.stringify(updatedTaskList));
     setUserInput("");
+    loadTasks();
   }
 
   return (
