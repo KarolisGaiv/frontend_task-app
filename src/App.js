@@ -4,12 +4,12 @@ import classNames from "classnames";
 import MoonIcon from "./images/icon-moon.svg";
 import SunIcon from "./images/icon-sun.svg";
 import TaskList from "./components/TaskList/TaskList";
-import templateTasks from "./data.json"
+import templateTasks from "./data.json";
 
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
   const [userInput, setUserInput] = useState("");
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([]);
 
   const contentClassess = classNames("content", {
     "content --light": isLightMode,
@@ -27,13 +27,18 @@ function App() {
   });
 
   useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem("tasks"))
+    loadTasks();
+  }, []);
+
+  function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
     if (!tasks) {
-      setTasks(templateTasks)
+      setTasks(templateTasks);
+      localStorage.setItem("tasks", JSON.stringify(templateTasks));
     } else {
-      setTasks(tasks)
+      setTasks(tasks);
     }
-  }, [])
+  }
 
   function changeTheme() {
     setIsLightMode(!isLightMode);
@@ -45,8 +50,9 @@ function App() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    tasks.push({name: userInput, completed: false})
-    console.log(tasks);
+    let updatedTaskList = [...tasks];
+    updatedTaskList.push({ name: userInput, completed: false });
+    localStorage.setItem("tasks", JSON.stringify(updatedTaskList));
     setUserInput("");
   }
 
@@ -79,7 +85,7 @@ function App() {
           />
         </form>
       </header>
-      <TaskList tasks={tasks} isLightMode={isLightMode}/>
+      <TaskList tasks={tasks} isLightMode={isLightMode} />
     </div>
   );
 }
