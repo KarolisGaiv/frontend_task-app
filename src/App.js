@@ -1,21 +1,15 @@
 import "./styles/main.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 import MoonIcon from "./images/icon-moon.svg";
 import SunIcon from "./images/icon-sun.svg";
 import TaskList from "./components/TaskList/TaskList";
+import templateTasks from "./data.json"
 
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
   const [userInput, setUserInput] = useState("");
-  let tasks = [
-    { name: "Complete online JavaScript course", completed: true },
-    { name: "Jog around the park 3x", completed: false },
-    { name: "10 minutes meditaion", completed: false },
-    { name: "Read for 1 hour", completed: false },
-    { name: "Pick up groceries", completed: false },
-    { name: "Complete Todo App on Frontend Mentor", completed: false },
-  ];
+  const [tasks, setTasks] = useState([])
 
   const contentClassess = classNames("content", {
     "content --light": isLightMode,
@@ -31,6 +25,15 @@ function App() {
     "header__new-task-form --light": isLightMode,
     "header__new-task-form --dark": !isLightMode,
   });
+
+  useEffect(() => {
+    const tasks = JSON.parse(localStorage.getItem("tasks"))
+    if (!tasks) {
+      setTasks(templateTasks)
+    } else {
+      setTasks(tasks)
+    }
+  }, [])
 
   function changeTheme() {
     setIsLightMode(!isLightMode);
@@ -72,6 +75,7 @@ function App() {
             id="input-field"
             onChange={handleInput}
             value={userInput}
+            aria-label="fullname"
           />
         </form>
       </header>
