@@ -37,7 +37,15 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
               onClick={toggleComplete}
               className="task-container__complete-btn"
             ></button>
-            <p className="task-container__task">{task.name}</p>
+            <p
+              className={
+                task.completed === false
+                  ? "task-container__task"
+                  : "task-container__task task-container__task --completed"
+              }
+            >
+              {task.name}
+            </p>
             <button className="task-container__delete-btn" onClick={deleteTask}>
               <img src={DeleteIcon} alt="delete-btn" />
             </button>

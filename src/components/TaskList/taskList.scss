@@ -54,6 +54,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    &.--completed {
+      color: $mischka;
+      text-decoration: line-through;
+    }
   }
 
   &__delete-btn {
