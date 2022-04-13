@@ -23,6 +23,11 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
     saveTasks(updatedArr);
   }
 
+  function deleteCompleted() {
+    let updatedArr = [...tasks].filter((task) => task.completed !== true);
+    saveTasks(updatedArr);
+  }
+
   return (
     <div className={taskWrapperClassess}>
       {tasks.map((task) => {
@@ -43,7 +48,10 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
         <p className="tasks-wrapper__bottom-container__task-counter">
           {tasks.length} tasks left
         </p>
-        <button className="tasks-wrapper__bottom-container__dlt-completed-btn">
+        <button
+          onClick={deleteCompleted}
+          className="tasks-wrapper__bottom-container__dlt-completed-btn"
+        >
           Clear Completed
         </button>
       </div>
