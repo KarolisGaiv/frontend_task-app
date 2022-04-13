@@ -38,6 +38,7 @@ function App() {
 
   function saveTasks(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    setTasks(tasks);
   }
 
   function handleInput(e) {

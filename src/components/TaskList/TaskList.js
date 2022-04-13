@@ -17,6 +17,12 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
     saveTasks(updatedArr);
   }
 
+  function deleteTask(e) {
+    let taskName = e.target.parentNode.parentNode.innerText;
+    let updatedArr = [...tasks].filter((task) => task.name !== taskName);
+    saveTasks(updatedArr);
+  }
+
   return (
     <div className={taskWrapperClassess}>
       {tasks.map((task) => {
@@ -27,7 +33,7 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
               className="task-container__complete-btn"
             ></button>
             <p className="task-container__task">{task.name}</p>
-            <button className="task-container__delete-btn">
+            <button className="task-container__delete-btn" onClick={deleteTask}>
               <img src={DeleteIcon} alt="delete-btn" />
             </button>
           </div>
