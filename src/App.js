@@ -31,10 +31,14 @@ function App() {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
     if (!tasks) {
       setTasks(templateTasks);
-      localStorage.setItem("tasks", JSON.stringify(templateTasks));
+      saveTasks(templateTasks);
     } else {
       setTasks(tasks);
     }
+  }
+
+  function saveTasks(tasks) {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 
   function changeTheme() {
@@ -49,7 +53,7 @@ function App() {
     e.preventDefault();
     let updatedTaskList = [...tasks];
     updatedTaskList.push({ name: userInput, completed: false });
-    localStorage.setItem("tasks", JSON.stringify(updatedTaskList));
+    saveTasks(updatedTaskList);
     setUserInput("");
     loadTasks();
   }
