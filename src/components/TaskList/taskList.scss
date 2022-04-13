@@ -45,6 +45,11 @@
     width: 20px;
   }
 
+  // BEM naming limitation for complete-btn background - classList.toggle does not allow classname with space symbol
+  .--active {
+    background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+  }
+
   &__task {
     color: $mulled-wine;
     font-size: $font-size-small;

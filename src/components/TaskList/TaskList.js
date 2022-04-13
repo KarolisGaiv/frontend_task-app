@@ -15,6 +15,8 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
     const targetTask = updatedArr.find((task) => task.name === taskName);
     targetTask.completed = !targetTask.completed;
     saveTasks(updatedArr);
+    // Change button styling
+    e.target.classList.toggle("--active");
   }
 
   function deleteTask(e) {
@@ -35,7 +37,11 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
           <div className="task-container" key={task.name}>
             <button
               onClick={toggleComplete}
-              className="task-container__complete-btn"
+              className={
+                task.completed === true
+                  ? "task-container__complete-btn --active"
+                  : "task-container__complete-btn"
+              }
             ></button>
             <p
               className={
