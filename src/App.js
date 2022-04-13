@@ -30,7 +30,6 @@ function App() {
   function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
     if (!tasks) {
-      setTasks(templateTasks);
       saveTasks(templateTasks);
     } else {
       setTasks(tasks);
@@ -39,10 +38,6 @@ function App() {
 
   function saveTasks(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
-  }
-
-  function changeTheme() {
-    setIsLightMode(!isLightMode);
   }
 
   function handleInput(e) {
@@ -56,6 +51,10 @@ function App() {
     saveTasks(updatedTaskList);
     setUserInput("");
     loadTasks();
+  }
+
+  function changeTheme() {
+    setIsLightMode(!isLightMode);
   }
 
   return (
@@ -87,7 +86,7 @@ function App() {
           />
         </form>
       </header>
-      <TaskList tasks={tasks} isLightMode={isLightMode} />
+      <TaskList tasks={tasks} isLightMode={isLightMode} saveTasks={saveTasks} />
     </div>
   );
 }

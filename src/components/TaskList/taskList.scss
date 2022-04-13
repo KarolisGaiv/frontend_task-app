@@ -36,6 +36,10 @@
   display: flex;
   padding: 20px 20px 16px 20px;
 
+  &.--completed {
+    background: red;
+  }
+
   &__complete-btn {
     background: none;
     border: 1px solid $snuff;

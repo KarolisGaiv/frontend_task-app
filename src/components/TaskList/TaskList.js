@@ -3,7 +3,7 @@ import React from "react";
 import DeleteIcon from "../../images/icon-cross.svg";
 import classNames from "classnames";
 
-function TaskList({ isLightMode, tasks }) {
+function TaskList({ isLightMode, tasks, saveTasks }) {
   const taskWrapperClassess = classNames("tasks-wrapper", {
     "tasks-wrapper --light": isLightMode,
     "tasks-wrapper --dark": !isLightMode,
@@ -11,11 +11,10 @@ function TaskList({ isLightMode, tasks }) {
 
   function toggleComplete(e) {
     let taskName = e.target.parentNode.innerText;
-    const targetTask = tasks.find((task) => task.name === taskName);
-    console.log(targetTask);
-    console.log("pakeitus completed reiksme");
+    let updatedArr = [...tasks];
+    const targetTask = updatedArr.find((task) => task.name === taskName);
     targetTask.completed = !targetTask.completed;
-    console.log(targetTask);
+    saveTasks(updatedArr);
   }
 
   return (
