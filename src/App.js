@@ -60,6 +60,12 @@ function App() {
     setTasks(activeTasks);
   }
 
+  function sortByCompleted() {
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    let activeTasks = tasksArr.filter((task) => task.completed === true);
+    setTasks(activeTasks);
+  }
+
   function changeTheme() {
     setIsLightMode(!isLightMode);
   }
@@ -97,7 +103,7 @@ function App() {
       <div className="sort-btn-wrapper">
         <button>All</button>
         <button onClick={sortByActive}>Active</button>
-        <button>Completed</button>
+        <button onClick={sortByCompleted}>Completed</button>
       </div>
     </div>
   );
