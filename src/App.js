@@ -54,6 +54,11 @@ function App() {
     loadTasks();
   }
 
+  function sortAllTasks() {
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    setTasks(tasksArr);
+  }
+
   function sortByActive() {
     const tasksArr = JSON.parse(localStorage.getItem("tasks"));
     let activeTasks = tasksArr.filter((task) => task.completed === false);
@@ -101,7 +106,7 @@ function App() {
       </header>
       <TaskList tasks={tasks} isLightMode={isLightMode} saveTasks={saveTasks} />
       <div className="sort-btn-wrapper">
-        <button>All</button>
+        <button onClick={sortAllTasks}>All</button>
         <button onClick={sortByActive}>Active</button>
         <button onClick={sortByCompleted}>Completed</button>
       </div>
