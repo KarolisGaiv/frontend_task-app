@@ -55,7 +55,8 @@ function App() {
   }
 
   function sortByActive() {
-    let activeTasks = tasks.filter((task) => task.completed === false);
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    let activeTasks = tasksArr.filter((task) => task.completed === false);
     setTasks(activeTasks);
   }
 
