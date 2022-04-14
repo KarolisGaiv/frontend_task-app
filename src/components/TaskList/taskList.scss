@@ -43,11 +43,24 @@
     cursor: pointer;
     height: 20px;
     width: 20px;
+
+    &:hover {
+      border: 1px solid linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+      // border: 1px solid green;
+    }
+
+    & img {
+      display: none;
+    }
   }
 
   // BEM naming limitation for complete-btn background - classList.toggle does not allow classname with space symbol
   .--active {
     background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+
+    & img {
+      display: inline;
+    }
   }
 
   &__task {

@@ -1,5 +1,6 @@
 import "./taskList.scss";
 import React from "react";
+import CheckIcon from "../../images/icon-check.svg";
 import DeleteIcon from "../../images/icon-cross.svg";
 import classNames from "classnames";
 
@@ -42,7 +43,9 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
                   ? "task-container__complete-btn --active"
                   : "task-container__complete-btn"
               }
-            ></button>
+            >
+              {/* <img src={CheckIcon} alt="completed task icon" /> */}
+            </button>
             <p
               className={
                 task.completed === false

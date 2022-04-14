@@ -54,6 +54,11 @@ function App() {
     loadTasks();
   }
 
+  function sortByActive() {
+    let activeTasks = tasks.filter((task) => task.completed === false);
+    setTasks(activeTasks);
+  }
+
   function changeTheme() {
     setIsLightMode(!isLightMode);
   }
@@ -88,6 +93,11 @@ function App() {
         </form>
       </header>
       <TaskList tasks={tasks} isLightMode={isLightMode} saveTasks={saveTasks} />
+      <div className="sort-btn-wrapper">
+        <button>All</button>
+        <button onClick={sortByActive}>Active</button>
+        <button>Completed</button>
+      </div>
     </div>
   );
 }
