@@ -78,7 +78,8 @@ function App() {
 
   return (
     <div className={contentClassess}>
-      <header className={headerClassess}>
+      <header className={headerClassess}></header>
+      <div className="test">
         <div className="header__top">
           <h1 className="header__top__text">todo</h1>
           <button className="header__theme-btn" onClick={changeTheme}>
@@ -104,12 +105,16 @@ function App() {
             aria-label="fullname"
           />
         </form>
-      </header>
-      <TaskList tasks={tasks} isLightMode={isLightMode} saveTasks={saveTasks} />
-      <div className="sort-btn-wrapper">
-        <button onClick={sortAllTasks}>All</button>
-        <button onClick={sortByActive}>Active</button>
-        <button onClick={sortByCompleted}>Completed</button>
+        <TaskList
+          tasks={tasks}
+          isLightMode={isLightMode}
+          saveTasks={saveTasks}
+        />
+        <div className="sort-btn-wrapper">
+          <button onClick={sortAllTasks}>All</button>
+          <button onClick={sortByActive}>Active</button>
+          <button onClick={sortByCompleted}>Completed</button>
+        </div>
       </div>
     </div>
   );

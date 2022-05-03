@@ -41,7 +41,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffff;
-  padding: 48px 24px;
+  padding-bottom: 100px;
+  padding-top: 100px;
 
   &.--light {
     background-image: url(../images/bg-mobile-light.jpg);
