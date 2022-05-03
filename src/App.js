@@ -10,6 +10,7 @@ function App() {
   const [isLightMode, setIsLightMode] = useState(true);
   const [userInput, setUserInput] = useState("");
   const [tasks, setTasks] = useState([]);
+
   const contentClassess = classNames("content", {
     "content --light": isLightMode,
     "content --dark": !isLightMode,
