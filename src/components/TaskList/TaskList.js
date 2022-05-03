@@ -1,6 +1,5 @@
 import "./taskList.scss";
 import React from "react";
-import CheckIcon from "../../images/icon-check.svg";
 import DeleteIcon from "../../images/icon-cross.svg";
 import classNames from "classnames";
 
