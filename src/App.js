@@ -79,7 +79,7 @@ function App() {
   return (
     <div className={contentClassess}>
       <header className={headerClassess}></header>
-      <div className="test">
+      <main className="app-content">
         <div className="header__top">
           <h1 className="header__top__text">todo</h1>
           <button className="header__theme-btn" onClick={changeTheme}>
@@ -115,7 +115,7 @@ function App() {
           <button onClick={sortByActive}>Active</button>
           <button onClick={sortByCompleted}>Completed</button>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
