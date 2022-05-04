@@ -42,7 +42,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #ffff;
   padding-bottom: 100px;
   padding-top: 100px;
 
@@ -56,6 +55,7 @@ body {
 
   &__top {
     align-items: baseline;
+    color: #ffff;
     display: flex;
     font-weight: $font-bold;
     justify-content: space-between;
