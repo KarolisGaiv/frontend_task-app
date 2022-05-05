@@ -81,7 +81,7 @@ function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
         <p className="tasks-wrapper__bottom-container__task-counter">
           {tasks.length} items left
         </p>
-        <div>
+        <div className="sort-buttons">
           <button onClick={sortAllTasks}>all</button>
           <button onClick={sortByActive}>active</button>
           <button onClick={sortByCompleted}>completed</button>
