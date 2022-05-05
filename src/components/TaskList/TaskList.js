@@ -3,7 +3,7 @@ import React from "react";
 import DeleteIcon from "../../images/icon-cross.svg";
 import classNames from "classnames";
 
-function TaskList({ isLightMode, tasks, saveTasks }) {
+function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
   const taskWrapperClassess = classNames("tasks-wrapper", {
     "tasks-wrapper --light": isLightMode,
     "tasks-wrapper --dark": !isLightMode,
@@ -28,6 +28,23 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
   function deleteCompleted() {
     let updatedArr = [...tasks].filter((task) => task.completed !== true);
     saveTasks(updatedArr);
+  }
+
+  function sortAllTasks() {
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    setTasks(tasksArr);
+  }
+
+  function sortByActive() {
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    let activeTasks = tasksArr.filter((task) => task.completed === false);
+    setTasks(activeTasks);
+  }
+
+  function sortByCompleted() {
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    let activeTasks = tasksArr.filter((task) => task.completed === true);
+    setTasks(activeTasks);
   }
 
   return (
@@ -62,8 +79,13 @@ function TaskList({ isLightMode, tasks, saveTasks }) {
       })}
       <div className="tasks-wrapper__bottom-container">
         <p className="tasks-wrapper__bottom-container__task-counter">
-          {tasks.length} tasks left
+          {tasks.length} items left
         </p>
+        <div>
+          <button onClick={sortAllTasks}>all</button>
+          <button onClick={sortByActive}>active</button>
+          <button onClick={sortByCompleted}>completed</button>
+        </div>
         <button
           onClick={deleteCompleted}
           className="tasks-wrapper__bottom-container__dlt-completed-btn"

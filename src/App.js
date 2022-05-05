@@ -55,23 +55,6 @@ function App() {
     loadTasks();
   }
 
-  function sortAllTasks() {
-    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
-    setTasks(tasksArr);
-  }
-
-  function sortByActive() {
-    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
-    let activeTasks = tasksArr.filter((task) => task.completed === false);
-    setTasks(activeTasks);
-  }
-
-  function sortByCompleted() {
-    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
-    let activeTasks = tasksArr.filter((task) => task.completed === true);
-    setTasks(activeTasks);
-  }
-
   function changeTheme() {
     setIsLightMode(!isLightMode);
   }
@@ -107,14 +90,10 @@ function App() {
         </form>
         <TaskList
           tasks={tasks}
+          setTasks={setTasks}
           isLightMode={isLightMode}
           saveTasks={saveTasks}
         />
-        <div className="sort-btn-wrapper">
-          <button onClick={sortAllTasks}>All</button>
-          <button onClick={sortByActive}>Active</button>
-          <button onClick={sortByCompleted}>Completed</button>
-        </div>
       </main>
     </div>
   );
