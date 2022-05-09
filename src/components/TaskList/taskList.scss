@@ -104,10 +104,15 @@
   & button {
     background: transparent;
     border: none;
+    cursor: pointer;
     color: $manatee;
     font-family: inherit;
     font-size: $font-size-smaller;
     font-weight: $font-bold;
     text-transform: capitalize;
+
+    &:hover {
+      color: $mulled-wine;
+    }
   }
 }
