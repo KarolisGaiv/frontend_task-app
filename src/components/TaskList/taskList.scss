@@ -93,8 +93,9 @@
 }
 
 .sort-buttons {
+  display: flex;
   left: 0;
-  padding: 15px 70px;
+  padding: 15px 80px;
   position: absolute;
   margin-top: 60px;
   width: 100%;
@@ -106,7 +107,7 @@
     font-family: inherit;
     font-size: $font-size-smaller;
     font-weight: $font-bold;
-    padding-right: 20px;
+    // padding-right: 20px;
     text-transform: capitalize;
   }
 }
