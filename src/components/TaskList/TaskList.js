@@ -4,6 +4,7 @@ import DeleteIcon from "../../images/icon-cross.svg";
 import classNames from "classnames";
 
 function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
+  const [tasksTodo, setTasksTodo] = useState();
   const [activeBtn, setActiveBtn] = useState("all");
 
   const taskWrapperClassess = classNames("tasks-wrapper", {
@@ -24,6 +25,15 @@ function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
     saveTasks(updatedArr);
     // Change button styling
     e.target.classList.toggle("--active");
+    countUncompleted(updatedArr);
+  }
+
+  function countUncompleted(tasks) {
+    let counter = 0;
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].completed === false) counter++;
+    }
+    setTasksTodo(counter);
   }
 
   function deleteTask(e) {
@@ -61,7 +71,14 @@ function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
     <div className={taskWrapperClassess}>
       {tasks.map((task) => {
         return (
-          <div className="task-container" key={task.name}>
+          <div
+            className={
+              isLightMode === false
+                ? "task-container task-container --dark"
+                : "task-container"
+            }
+            key={task.name}
+          >
             <button
               onClick={toggleComplete}
               className={
@@ -89,7 +106,7 @@ function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
       })}
       <div className="tasks-wrapper__bottom-container">
         <p className="tasks-wrapper__bottom-container__task-counter">
-          {tasks.length} items left
+          {tasksTodo} items left
         </p>
         <div className={sortButtonsClassess}>
           <button

@@ -38,6 +38,10 @@
   display: flex;
   padding: 20px 20px 16px 20px;
 
+  &.--dark {
+    border-bottom: 1px solid $bright-gray;
+  }
+
   &__complete-btn {
     background: none;
     border: 1px solid $snuff;
