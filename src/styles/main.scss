@@ -70,6 +70,11 @@ body {
     letter-spacing: 10px;
     text-transform: uppercase;
 
+    @media (min-width: $breakpoint-tablet) {
+      font-size: $font-size-large;
+      letter-spacing: 15px;
+    }
+
     &__text {
       font-size: $font-size-medium;
     }
@@ -138,6 +143,11 @@ body {
       font-size: $font-size-small;
       padding: 18px 0;
       width: 100%;
+
+      @media (min-width: $breakpoint-tablet) {
+        font-size: 18px;
+        padding: 22px 0;
+      }
     }
   }
 }
@@ -146,6 +156,11 @@ body {
   bottom: 160px;
   position: relative;
   margin-inline: 24px;
+
+  @media (min-width: $breakpoint-tablet) {
+    margin-inline: auto;
+    min-width: 540px;
+  }
 }
 
 .visuallyhidden {
