@@ -47,10 +47,18 @@ body {
 
   &.--light {
     background-image: url(../images/bg-mobile-light.jpg);
+
+    @media (min-width: $breakpoint-tablet) {
+      background-image: url(../images/bg-desktop-light.jpg);
+    }
   }
 
   &.--dark {
     background-image: url(../images/bg-mobile-dark.jpg);
+
+    @media (min-width: $breakpoint-tablet) {
+      background-image: url(../images/bg-desktop-dark.jpg);
+    }
   }
 
   &__top {
