@@ -38,6 +38,10 @@
   display: flex;
   padding: 20px 20px 16px 20px;
 
+  @media (min-width: $breakpoint-tablet) {
+    padding: 20px;
+  }
+
   &.--dark {
     border-bottom: 1px solid $bright-gray;
   }
@@ -78,6 +82,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 18px;
+    }
 
     &.--completed {
       color: $mischka;
