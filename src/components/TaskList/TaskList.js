@@ -1,9 +1,11 @@
 import "./taskList.scss";
-import React from "react";
+import React, { useState } from "react";
 import DeleteIcon from "../../images/icon-cross.svg";
 import classNames from "classnames";
 
 function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
+  const [activeBtn, setActiveBtn] = useState("all");
+
   const taskWrapperClassess = classNames("tasks-wrapper", {
     "tasks-wrapper --light": isLightMode,
     "tasks-wrapper --dark": !isLightMode,
@@ -38,18 +40,21 @@ function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
   function sortAllTasks() {
     const tasksArr = JSON.parse(localStorage.getItem("tasks"));
     setTasks(tasksArr);
+    setActiveBtn("all");
   }
 
   function sortByActive() {
     const tasksArr = JSON.parse(localStorage.getItem("tasks"));
     let activeTasks = tasksArr.filter((task) => task.completed === false);
     setTasks(activeTasks);
+    setActiveBtn("active");
   }
 
   function sortByCompleted() {
     const tasksArr = JSON.parse(localStorage.getItem("tasks"));
     let activeTasks = tasksArr.filter((task) => task.completed === true);
     setTasks(activeTasks);
+    setActiveBtn("completed");
   }
 
   return (
@@ -87,9 +92,24 @@ function TaskList({ isLightMode, tasks, setTasks, saveTasks }) {
           {tasks.length} items left
         </p>
         <div className={sortButtonsClassess}>
-          <button onClick={sortAllTasks}>all</button>
-          <button onClick={sortByActive}>active</button>
-          <button onClick={sortByCompleted}>completed</button>
+          <button
+            onClick={sortAllTasks}
+            className={activeBtn === "all" ? "--active" : ""}
+          >
+            all
+          </button>
+          <button
+            onClick={sortByActive}
+            className={activeBtn === "active" ? "--active" : ""}
+          >
+            active
+          </button>
+          <button
+            onClick={sortByCompleted}
+            className={activeBtn === "completed" ? "--active" : ""}
+          >
+            completed
+          </button>
         </div>
         <button
           onClick={deleteCompleted}

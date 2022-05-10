@@ -111,6 +111,10 @@
     font-weight: $font-bold;
     text-transform: capitalize;
 
+    &.--active {
+      color: $dodger-blue;
+    }
+
     &:hover {
       color: $mulled-wine;
     }
