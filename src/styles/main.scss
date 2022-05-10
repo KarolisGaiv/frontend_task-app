@@ -134,6 +134,10 @@ body {
       margin-left: 20px;
       margin-right: 12px;
       width: 24px;
+
+      @media (min-width: $breakpoint-tablet) {
+        margin-bottom: 4px;
+      }
     }
 
     & input {
